@@ -1,0 +1,28 @@
+.product {
+  border: 1px solid darkgray;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.cta-container {
+  display: flex;
+}
+
+.price {
+  font-weight: 700;
+}
+
+.cta-container--1 {
+  display: flex;
+  flex-grow: 1;
+}
+
+.cta-container--2 {
+  display: flex;
+  align-self: flex-end;
+}
+
+.sale {
+  background-color: yellow;
+}

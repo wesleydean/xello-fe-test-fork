@@ -1,0 +1,17 @@
+.dropdown-select {
+  outline: none;
+  height: 40px;
+  text-align: center;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.dropdown {
+  border-radius: 3px;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.title-section {
+  display: flex;
+}

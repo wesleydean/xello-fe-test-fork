@@ -1,0 +1,21 @@
+<div class="title-section">
+  <a [routerLink]="['/']">
+    <h1>My Courses</h1>
+  </a>
+
+  <div class="dropdown">
+    <select class="dropdown-select" (change)="selectLocale($event)">
+      <option
+        *ngFor="let locale of locales"
+        [value]="locale.value"
+        [selected]="locale.value === 'en-ca'"
+      >
+        {{ locale.value }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<a class="button fancy-button">
+  <i class="material-icons">shopping_cart</i>Checkout
+</a>
