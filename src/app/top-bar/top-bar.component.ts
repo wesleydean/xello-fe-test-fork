@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { count, reduce } from 'rxjs';
+import { count, map, Observable, reduce, Subject } from 'rxjs';
 import { FavouriteService } from '../services/favourite.service';
 import { LocaleService } from '../services/locale.service';
 
@@ -9,24 +9,12 @@ import { LocaleService } from '../services/locale.service';
   styleUrls: ['./top-bar.component.scss'],
 })
 export class TopBarComponent {
-  faveCount$;
+  $favouriteList;
+  locales;
   constructor(private localeService: LocaleService, private favouriteService: FavouriteService) {
-    this.faveCount$ = this.favouriteService.getFavourites().pipe(count());
+    this.$favouriteList = this.favouriteService.$favourites
+    this.locales = this.localeService.getLocales();
   }
-  locales = [
-    {
-      id: 1,
-      value: 'en-ca',
-    },
-    {
-      id: 2,
-      value: 'en-us',
-    },
-    {
-      id: 3,
-      value: 'en-gb',
-    },
-  ];
 
   selectLocale($event: any) {
     console.log($event.target.value);

@@ -62,13 +62,13 @@ export class ProductListComponent {
     window.alert('The product has been shared!');
   }
 
-  addToFavourites(course: Course): void{
+  addAsFavourite(course: Course): void{
     console.log(course);
-    this.favouriteService.createProduct(course).subscribe(res => {
-      console.log(res);
-      // this.getProducts();
+    this.favouriteService.createFavourite(course).subscribe(res => {
+      this.favouriteService.getFavourites();
     })
   }
+
 }
 
 /*

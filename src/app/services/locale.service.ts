@@ -17,4 +17,21 @@ export class LocaleService {
   getLocale(): Observable<string> {
     return this.$locale;
   }
+
+  getLocales(){
+    return [
+      {
+        id: 1,
+        value: 'en-ca',
+      },
+      {
+        id: 2,
+        value: 'en-us',
+      },
+      {
+        id: 3,
+        value: 'en-gb',
+      },
+    ]
+  }
 }

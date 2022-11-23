@@ -17,8 +17,8 @@
 
 <div class="top-bar--right">
   <a class="favourite-icon">
-    <i class="material-icons" role="img" attr.aria-label="{{faveCount$ | async}} favourited courses">favorite</i>
-    <span class="count">{{faveCount$ | async}}</span>
+    <i class="material-icons" role="img" attr.aria-label="favourited courses">favorite</i>
+    <span class="count">{{($favouriteList | async)?.length}}</span>
   </a>
   <a class="button fancy-button">
     <i class="material-icons">shopping_cart</i>Checkout
