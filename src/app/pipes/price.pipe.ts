@@ -14,9 +14,9 @@ export class PricePipe implements PipeTransform {
       case 'en-ca':
         return `$${value} CAD`;
       case 'en-us':
-        return `$${value} US`;
+        return `$${(value*.75).toFixed(2)} US`;
       case 'en-gb':
-        return `£${value} GB`;
+        return `£${(value*.63).toFixed(2)} GB`;
       default:
         return `$${value} CAD`;
     }
