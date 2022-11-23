@@ -1,3 +1,4 @@
+
 .dropdown-select {
   outline: none;
   height: 40px;
@@ -15,3 +16,23 @@
 .title-section {
   display: flex;
 }
+
+.top-bar--right {
+  display: flex;
+}
+
+.favourite-icon {
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: white;
+}
+
+.favourite-icon .material-icons, .count {
+  color: white;
+}
+.count {
+  margin-left: 5px;
+}
+
