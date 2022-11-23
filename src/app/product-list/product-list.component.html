@@ -21,7 +21,7 @@
 
   <div class="cta-container">
     <div class="cta-container--1">
-      <button type="button" (click)="share()">Add to cart</button>
+      <button type="button">Add to cart</button>
     </div>
 
     <div class="cta-container--2">
@@ -29,7 +29,7 @@
       <ng-template #isFavourite>
         <button type="button" (click)="removeAsFavourite(product)">Delete favourite</button>
       </ng-template>
-      <button type="button">Share</button>
+      <button type="button" (click)="share()">Share</button>
     </div>
   </div>
 </div>
