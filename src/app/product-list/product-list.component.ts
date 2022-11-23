@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { map, Observable, of, switchMap } from 'rxjs';
 import { Course } from '../models/course.model';
 import { FavouriteService } from '../services/favourite.service';
 import { LocaleService } from '../services/locale.service';
@@ -11,13 +12,6 @@ import { LocaleService } from '../services/locale.service';
 export class ProductListComponent {
   locale = 'en-ca';
   $favouriteList;
-  constructor(private localeService: LocaleService, private favouriteService: FavouriteService) {
-    this.$favouriteList = this.favouriteService.$favourites
-
-    this.localeService.getLocale().subscribe((res: string) => {
-      this.locale = res;
-    });
-  }
   products = [
     {
       id: 1,
@@ -60,6 +54,22 @@ export class ProductListComponent {
         'Learn how to connect your Angular Frontend to a NodeJS & Express & MongoDB Backend by building a real Application',
     },
   ];
+  $products;
+  constructor(private localeService: LocaleService, private favouriteService: FavouriteService) {
+    this.$favouriteList = this.favouriteService.$favourites
+    this.$products = this.$favouriteList.pipe(map(faves => {
+      return this.products.map(p => {
+        return {
+          ...p, isFavourite: faves.some(fave => fave.id === p.id)
+        }
+      });
+    }));
+
+    this.localeService.getLocale().subscribe((res: string) => {
+      this.locale = res;
+    });
+  }
+
 
   share() {
     window.alert('The product has been shared!');

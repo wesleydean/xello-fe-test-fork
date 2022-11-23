@@ -1,6 +1,6 @@
 <h2>Products</h2>
 
-<div class="product" *ngFor="let product of products">
+<div class="product" *ngFor="let product of ($products | async)">
   <h3>
     <a [title]="product.name + ' details'">
       {{ product.name }}
@@ -15,8 +15,10 @@
 
   <div class="cta-container">
     <button type="button" (click)="share()">Add to cart</button>
-    <button type="button" (click)="addAsFavourite(product)">Add favourite</button>
-    <button type="button" (click)="removeAsFavourite(product)">Delete favourite</button>
+    <button type="button" (click)="addAsFavourite(product)" *ngIf="!product.isFavourite, else isFavourite">Add favourite</button>
+    <ng-template #isFavourite>
+      <button type="button" (click)="removeAsFavourite(product)">Delete favourite</button>
+    </ng-template>
     <button type="button">Share</button>
   </div>
 </div>
