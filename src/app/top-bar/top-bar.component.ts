@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { count, map, Observable, reduce, Subject } from 'rxjs';
 import { FavouriteService } from '../services/favourite.service';
 import { LocaleService } from '../services/locale.service';
 

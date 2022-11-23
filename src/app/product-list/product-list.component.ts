@@ -10,7 +10,10 @@ import { LocaleService } from '../services/locale.service';
 })
 export class ProductListComponent {
   locale = 'en-ca';
+  $favouriteList;
   constructor(private localeService: LocaleService, private favouriteService: FavouriteService) {
+    this.$favouriteList = this.favouriteService.$favourites
+
     this.localeService.getLocale().subscribe((res: string) => {
       this.locale = res;
     });
@@ -65,6 +68,12 @@ export class ProductListComponent {
   addAsFavourite(course: Course): void{
     console.log(course);
     this.favouriteService.createFavourite(course).subscribe(res => {
+      this.favouriteService.getFavourites();
+    })
+  }
+
+  removeAsFavourite(course: Course){
+    this.favouriteService.removeFavourite(course).subscribe(res => {
       this.favouriteService.getFavourites();
     })
   }

@@ -9,6 +9,7 @@ import { InMemoryService } from './in-memory.service';
   providedIn: 'root'
 })
 export class FavouriteService {
+
   private favouritesUrl = 'api/favourites/';
   $favourites = new BehaviorSubject<Course[]>([]);
   constructor(private inMemoryService: InMemoryService, private http: HttpClient) { }
@@ -22,6 +23,10 @@ export class FavouriteService {
   }
   getFavourites() {
     return this.http.get<Course[]>(this.favouritesUrl).subscribe(res => this.$favourites.next(res))
+  }
+
+  removeFavourite(course: Course) {
+    return this.http.delete<Course[]>(this.favouritesUrl + course.id);
   }
 
 }
