@@ -60,7 +60,9 @@ export class ProductListComponent {
     this.$products = this.$favouriteList.pipe(map(faves => {
       return this.products.map(p => {
         return {
-          ...p, isFavourite: faves.some(fave => fave.id === p.id)
+          ...p,
+          rating: Array(p.rating).fill(1).map((x, i) => i + 1),
+          isFavourite: faves.some(fave => fave.id === p.id)
         }
       });
     }));

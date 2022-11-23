@@ -9,6 +9,8 @@
 
   <p *ngIf="product.description">Description: {{ product.description }}</p>
 
+  <i *ngFor="let rating of product.rating" class="rating material-icons">star</i>
+
   <p class="price">
     {{ product.price | price: locale }}
   </p>
