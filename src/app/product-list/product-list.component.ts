@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Course } from '../models/course.model';
+import { FavouriteService } from '../services/favourite.service';
 import { LocaleService } from '../services/locale.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { LocaleService } from '../services/locale.service';
 })
 export class ProductListComponent {
   locale = 'en-ca';
-  constructor(private localeService: LocaleService) {
+  constructor(private localeService: LocaleService, private favouriteService: FavouriteService) {
     this.localeService.getLocale().subscribe((res: string) => {
       this.locale = res;
     });
@@ -58,6 +60,14 @@ export class ProductListComponent {
 
   share() {
     window.alert('The product has been shared!');
+  }
+
+  addToFavourites(course: Course): void{
+    console.log(course);
+    this.favouriteService.createProduct(course).subscribe(res => {
+      console.log(res);
+      // this.getProducts();
+    })
   }
 }
 
