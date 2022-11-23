@@ -27,6 +27,11 @@
   background-color: yellow;
 }
 
-.rating {
+.rating .material-icons {
   font-size: 20px;
+  color: #e1e1e1;
+}
+
+.rating .material-icons.rating-voted {
+  color: #dda928;
 }

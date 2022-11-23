@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver } from '@angular/core';
 import { map, Observable, of, switchMap } from 'rxjs';
 import { Course } from '../models/course.model';
 import { FavouriteService } from '../services/favourite.service';
@@ -61,7 +61,12 @@ export class ProductListComponent {
       return this.products.map(p => {
         return {
           ...p,
-          rating: Array(p.rating).fill(1).map((x, i) => i + 1),
+          rating: Array(5).fill(0).map((x, i) => {
+            return {
+              value: i + 1,
+              voted: p.rating >= i+1
+            }
+          }),
           isFavourite: faves.some(fave => fave.id === p.id)
         }
       });

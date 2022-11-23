@@ -9,7 +9,11 @@
 
   <p *ngIf="product.description">Description: {{ product.description }}</p>
 
-  <i *ngFor="let rating of product.rating" class="rating material-icons">star</i>
+  <div class="rating">
+    <span *ngFor="let rating of product.rating">
+      <i class="material-icons" [ngClass]="{'rating-voted': rating.voted}">star</i>
+    </span>
+  </div>
 
   <p class="price">
     {{ product.price | price: locale }}
