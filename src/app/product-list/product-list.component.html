@@ -14,11 +14,16 @@
   </p>
 
   <div class="cta-container">
-    <button type="button" (click)="share()">Add to cart</button>
-    <button type="button" (click)="addAsFavourite(product)" *ngIf="!product.isFavourite, else isFavourite">Add favourite</button>
-    <ng-template #isFavourite>
-      <button type="button" (click)="removeAsFavourite(product)">Delete favourite</button>
-    </ng-template>
-    <button type="button">Share</button>
+    <div class="cta-container--1">
+      <button type="button" (click)="share()">Add to cart</button>
+    </div>
+
+    <div class="cta-container--2">
+      <button type="button" (click)="addAsFavourite(product)" *ngIf="!product.isFavourite, else isFavourite">Add favourite</button>
+      <ng-template #isFavourite>
+        <button type="button" (click)="removeAsFavourite(product)">Delete favourite</button>
+      </ng-template>
+      <button type="button">Share</button>
+    </div>
   </div>
 </div>
